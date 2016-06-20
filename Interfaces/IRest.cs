@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DemoApp.Interfaces
 {
-    class IRest
+    interface IRest
     {
     }
 }
