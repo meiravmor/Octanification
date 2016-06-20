@@ -85,7 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
-    <None Include="Resources\20-06-2016 16-50-26.png" />
+    <None Include="Resources\hpe-logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
