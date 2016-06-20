@@ -1,4 +1,4 @@
-﻿namespace DemoApp
+﻿namespace Octanification
 {
     partial class authentication
     {
@@ -154,7 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.BackgroundImage = global::DemoApp.Properties.Resources._20_06_2016_16_50_26;
+            this.BackgroundImage = global::Octanification.Properties.Resources.authenticate;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(691, 266);
             this.ControlBox = false;

@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoApp.Interfaces
+namespace Octanification.Interfaces
 {
     interface IRest
     {
+        void authenticate();
+
+        Object fetchOctanEntities();
+
+        Object fetchOctanUsers();
+
+        void logoof();
     }
 }

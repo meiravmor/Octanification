@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DemoApp.Properties {
+namespace Octanification.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DemoApp.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DemoApp.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Octanification.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace DemoApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _20_06_2016_16_50_26 {
+        internal static System.Drawing.Bitmap authenticate {
             get {
-                object obj = ResourceManager.GetObject("20-06-2016 16-50-26", resourceCulture);
+                object obj = ResourceManager.GetObject("authenticate", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
