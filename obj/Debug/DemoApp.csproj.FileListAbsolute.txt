@@ -1,9 +1,0 @@
-c:\users\azulayel\documents\visual studio 2015\Projects\DemoApp\DemoApp\bin\Debug\DemoApp.exe.config
-c:\users\azulayel\documents\visual studio 2015\Projects\DemoApp\DemoApp\bin\Debug\DemoApp.exe
-c:\users\azulayel\documents\visual studio 2015\Projects\DemoApp\DemoApp\bin\Debug\DemoApp.pdb
-c:\users\azulayel\documents\visual studio 2015\Projects\DemoApp\DemoApp\obj\Debug\DemoApp.csprojResolveAssemblyReference.cache
-c:\users\azulayel\documents\visual studio 2015\Projects\DemoApp\DemoApp\obj\Debug\DemoApp.Form1.resources
-c:\users\azulayel\documents\visual studio 2015\Projects\DemoApp\DemoApp\obj\Debug\DemoApp.Properties.Resources.resources
-c:\users\azulayel\documents\visual studio 2015\Projects\DemoApp\DemoApp\obj\Debug\DemoApp.csproj.GenerateResource.Cache
-c:\users\azulayel\documents\visual studio 2015\Projects\DemoApp\DemoApp\obj\Debug\DemoApp.exe
-c:\users\azulayel\documents\visual studio 2015\Projects\DemoApp\DemoApp\obj\Debug\DemoApp.pdb
