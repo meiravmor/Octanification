@@ -140,7 +140,7 @@
             this.message.AutoSize = true;
             this.message.BackColor = System.Drawing.Color.Transparent;
             this.message.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.message.ForeColor = System.Drawing.Color.Teal;
+            this.message.ForeColor = System.Drawing.Color.MintCream;
             this.message.Location = new System.Drawing.Point(248, 214);
             this.message.Name = "message";
             this.message.Size = new System.Drawing.Size(87, 13);
