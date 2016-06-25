@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Octanification.restClient;
+using Octanification.UI_Components;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +15,7 @@ namespace Octanification
 {
     public partial class authentication : Form
     {
+        RestClient client;
         int sec = 0;
 
         public authentication()
@@ -52,10 +56,30 @@ namespace Octanification
             }
             else
             {
+                loginToServer();
                 faildState(false, false, false, false, true);
                 message.Visible = true;
                 timer1.Interval = 1000;
                 timer1.Start();
+            }
+        }
+
+        private async void loginToServer()
+        {
+            client = new RestClient(serverAddress.Text);
+            HttpResponseMessage response = await client.login(username.Text, password.Text);
+            if (response.StatusCode.ToString().Equals("OK"))
+            {
+                this.Hide();
+                SettingsWin settingsWin = new SettingsWin();
+                settingsWin.ShowDialog();
+            }
+            else
+            {
+                timer1.Stop();
+                MessageBox.Show("The details you’ve entered are incorrect.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                faildState(true, true, true, true, true);
+                message.Visible = false;
             }
         }
 
@@ -95,5 +119,6 @@ namespace Octanification
         {
 
         }
+
     }
 }

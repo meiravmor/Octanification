@@ -14,6 +14,6 @@ namespace Octanification.Interfaces
 
         Object fetchOctanUsers();
 
-        void logoof();
+        void signOut();
     }
 }
