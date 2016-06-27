@@ -1,4 +1,6 @@
-﻿using Octanification.restClient;
+﻿using Octanification.Interfaces;
+using Octanification.restClient;
+using Octanification.Server;
 using Octanification.UI_Components;
 using System;
 using System.Collections.Generic;
@@ -120,5 +122,10 @@ namespace Octanification
 
         }
 
+        private void start_Click(object sender, EventArgs e)
+        {
+            IServer server = new ServerListener(5050, "C:\\Users\\gullery\\Documents\\Visual Studio 2010\\Projects\\WebServer\\site_root");
+            server.StartServer();
+        }
     }
 }
