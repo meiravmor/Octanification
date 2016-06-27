@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Octanification.Interfaces
 {
-    interface ISocket
+    interface IServer
     {
+        void StartServer();
     }
 }

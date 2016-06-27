@@ -41,6 +41,7 @@
             this.password = new System.Windows.Forms.TextBox();
             this.message = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.start = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -165,6 +166,16 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // start
+            // 
+            this.start.Location = new System.Drawing.Point(515, 230);
+            this.start.Name = "start";
+            this.start.Size = new System.Drawing.Size(75, 23);
+            this.start.TabIndex = 11;
+            this.start.Text = "start";
+            this.start.UseVisualStyleBackColor = true;
+            this.start.Click += new System.EventHandler(this.start_Click);
+            // 
             // authentication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -175,6 +186,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(921, 327);
             this.ControlBox = false;
+            this.Controls.Add(this.start);
             this.Controls.Add(this.message);
             this.Controls.Add(this.password);
             this.Controls.Add(this.label4);
@@ -215,6 +227,7 @@
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Label message;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button start;
     }
 }
 
