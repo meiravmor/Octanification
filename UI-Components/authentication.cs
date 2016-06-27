@@ -73,7 +73,7 @@ namespace Octanification
             if (response.StatusCode.ToString().Equals("OK"))
             {
                 this.Hide();
-                SettingsWin settingsWin = new SettingsWin();
+                SettingsWin settingsWin = new SettingsWin(client);
                 settingsWin.ShowDialog();
             }
             else
