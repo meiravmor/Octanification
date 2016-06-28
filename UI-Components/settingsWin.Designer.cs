@@ -34,10 +34,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(557, 359);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(743, 442);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 19);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -46,26 +46,27 @@
             // usersList
             // 
             this.usersList.FormattingEnabled = true;
-            this.usersList.Location = new System.Drawing.Point(35, 58);
-            this.usersList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.usersList.ItemHeight = 16;
+            this.usersList.Location = new System.Drawing.Point(166, 143);
+            this.usersList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.usersList.Name = "usersList";
-            this.usersList.Size = new System.Drawing.Size(178, 134);
+            this.usersList.Size = new System.Drawing.Size(236, 164);
             this.usersList.TabIndex = 1;
             this.usersList.SelectedIndexChanged += new System.EventHandler(this.usersList_SelectedIndexChanged);
             // 
             // SettingsWin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BackgroundImage = global::Octanification.Properties.Resources.hpe_logo;
+            this.BackgroundImage = global::Octanification.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(669, 431);
+            this.ClientSize = new System.Drawing.Size(892, 530);
             this.Controls.Add(this.usersList);
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SettingsWin";
