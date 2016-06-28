@@ -15,12 +15,12 @@ using System.Windows.Forms;
 
 namespace Octanification
 {
-    public partial class authentication : Form
+    public partial class frmAuthentication : Form
     {
         RestClient client;
         int sec = 0;
 
-        public authentication()
+        public frmAuthentication()
         {
             InitializeComponent();
         }
@@ -30,7 +30,7 @@ namespace Octanification
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             if (message.Visible)
             {
@@ -45,26 +45,7 @@ namespace Octanification
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (!isValideArgs())
-            {
-                MessageBox.Show("Enter Material Name Please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                loginToServer();
-                faildState(false, false, false, false, true);
-                message.Visible = true;
-                timer1.Interval = 1000;
-                timer1.Start();
-            }
-        }
 
         private async void loginToServer()
         {
@@ -97,8 +78,8 @@ namespace Octanification
             serverAddress.Enabled = url;
             username.Enabled = user;
             password.Enabled = pass;
-            connect.Enabled = connection;
-            cancel.Enabled = close;
+            btnConnect.Enabled = connection;
+            btnCancel.Enabled = close;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -126,6 +107,22 @@ namespace Octanification
         {
             IServer server = new ServerListener(5050, "C:\\Users\\gullery\\Documents\\Visual Studio 2010\\Projects\\WebServer\\site_root");
             server.StartServer();
+        }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            if (!isValideArgs())
+            {
+                MessageBox.Show("Enter Material Name Please.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                loginToServer();
+                faildState(false, false, false, false, true);
+                message.Visible = true;
+                timer1.Interval = 1000;
+                timer1.Start();
+            }
         }
     }
 }
