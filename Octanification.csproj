@@ -134,6 +134,11 @@
     <Content Include="packages\Newtonsoft.Json.6.0.4\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.xml" />
     <Content Include="packages\Newtonsoft.Json.6.0.4\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll" />
     <Content Include="packages\Newtonsoft.Json.6.0.4\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.xml" />
+    <None Include="Resources\images\bg.png" />
+    <None Include="Resources\images\login-top-left.png" />
+    <None Include="Resources\images\login-right.png" />
+    <None Include="Resources\images\login-bottom-left.png" />
+    <None Include="Resources\images\hpe-logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
