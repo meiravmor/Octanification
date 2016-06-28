@@ -6,11 +6,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using System.Web.Script.Serialization;
 
 namespace Octanification.restClient
 {
     public class RestClient
     {
+       /* [JsonConverter(typeof(EntityConverter))]
+        public class Entity
+        {
+            public string name { get; set; }
+            public string label { get; set; }
+            public string type { get; set; }
+            public string features { get; set; }
+        }
+
+        public class EntityConverter : JsonConverter
+        {
+            public override bool CanConvert(Type objectType)
+            {
+                return objectType == typeof(Entity);
+            }
+
+            public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+            {
+                if (reader.TokenType == JsonToken.Null)
+                    return null;
+                var array = JArray.Load(reader);
+                var entity = (existingValue as Entity ?? new Entity());
+                entity.features = (string)array.ElementAtOrDefault(0);
+                entity.name = (string)array.ElementAtOrDefault(1);
+                entity.label = (string)array.ElementAtOrDefault(2);
+                entity.type = (string)array.ElementAtOrDefault(3);
+                return entity;
+            }
+
+            public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+            {
+                var entity = (Entity)value;
+                serializer.Serialize(writer, new[] { entity.features, entity.name, entity.label, entity.type});
+            }
+        }*/
+
         HttpClient client;
         Credentials credentials;
         string HPSSO_COOKIE_CSRF;
@@ -106,6 +144,30 @@ namespace Octanification.restClient
                 }
             }
             return listOfUsers;
+        }
+
+        public async Task<List<string>> getEntities()
+        {
+            List<string> entitiesLsit = new List<string>();
+            Dictionary<string, string> mapEntity = new Dictionary<string, string>();
+            List<Dictionary<string, string>> listOfEntities = new List<Dictionary<string, string>>();
+            HttpResponseMessage response = await client.GetAsync(SHAREDSPACE_WORKSPACE_URL + "metadata/entities");
+            if (response.StatusCode.ToString().Equals("OK"))
+            {
+                JObject json = JObject.Parse(response.Content.ReadAsStringAsync().Result);
+                //var settings = new JsonSerializerSettings { Converters = new[] { new EntityConverter() } };
+               // var list = JsonConvert.DeserializeObject<List<Entity>>(response.Content.ReadAsStringAsync().Result, settings);
+                JToken entities = (json.First).First;
+                foreach (JToken entity in entities)
+                {
+                    if (entity.ToString().Contains("business_rules"))
+                    {
+                        string label = (entity.First.Next.Next).First.ToString();
+                        entitiesLsit.Add(label);
+                    }
+                }
+            }
+            return entitiesLsit;
         }
     }
 }

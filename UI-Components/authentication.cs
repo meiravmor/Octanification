@@ -124,5 +124,10 @@ namespace Octanification
                 timer1.Start();
             }
         }
+
+        private void username_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

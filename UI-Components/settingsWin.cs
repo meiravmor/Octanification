@@ -28,7 +28,7 @@ namespace Octanification.UI_Components
 
         private async void getBusinessRuleEntities()
         {
-
+            List<string> response = await client.getEntities();
         }
 
         private async void getWorkspaceUsers()
