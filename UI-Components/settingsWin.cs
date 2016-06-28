@@ -1,13 +1,9 @@
-﻿using Octanification.restClient;
+﻿using Newtonsoft.Json.Linq;
+using Octanification.Entities;
+using Octanification.restClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Octanification.UI_Components
@@ -15,26 +11,57 @@ namespace Octanification.UI_Components
     public partial class SettingsWin : Form
     {
         RestClient client;
+        List<User> users = new List<User>();
 
         public SettingsWin(RestClient clientReceived)
         {
             InitializeComponent();
             client = clientReceived;
+            getSettingsparms();
+        }
+
+        private async void getSettingsparms()
+        {
+            getWorkspaceUsers();
+            getBusinessRuleEntities();
+        }
+
+        private async void getBusinessRuleEntities()
+        {
+
+        }
+
+        private async void getWorkspaceUsers()
+        {
+            List<Dictionary<string, string>> response = await client.getWorkspaceUsers();
+            usersList.DisplayMember = "fullName";
+            foreach (Dictionary<string, string> user in response)
+            {
+                string email;
+                string uuid;
+                string name;
+                user.TryGetValue("full_name", out name);
+                user.TryGetValue("uid", out uuid);
+                user.TryGetValue("email", out email);
+                User newUser = new User(email, uuid, name);
+                users.Add(newUser);
+            }
+            foreach (User user in users)
+            {
+                usersList.Items.Add(user);
+            }
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            HttpResponseMessage response = await client.get("api/shared_spaces/1001/workspaces/2009/defects/2279");
-            if(response.StatusCode.ToString().Equals("OK"))
-            {
-                string defect = response.Content.ReadAsStringAsync().Result;
-                string stop = "STOP";
-            }
+            string stop = "Stop";
+
         }
 
         private void usersList_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            User asdasd = usersList.SelectedItem as User;
+            string sdsd = "sdf";
         }
     }
 }

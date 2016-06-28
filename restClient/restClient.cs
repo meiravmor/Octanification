@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json.Linq;
 
 namespace Octanification.restClient
 {
@@ -17,6 +18,7 @@ namespace Octanification.restClient
         string LWSSO_COOKIE_KEY;
         string workSpace;
         string sharedSpace;
+        string SHAREDSPACE_WORKSPACE_URL;
 
         class Credentials
         {
@@ -31,8 +33,9 @@ namespace Octanification.restClient
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.Add("HPECLIENTTYPE", "HPE_MQM_UI");
-            workSpace = "2009";
+            workSpace = "2032";
             sharedSpace = "1001";
+            SHAREDSPACE_WORKSPACE_URL = "api/shared_spaces/" + sharedSpace + "/workspaces/" + workSpace + "/";
         }
 
         public async Task<HttpResponseMessage> login(string userName, string pass)
@@ -84,6 +87,25 @@ namespace Octanification.restClient
             {
                 return client.GetAsync(url);
             });
+        }
+
+        public async Task<List<Dictionary<string, string>>> getWorkspaceUsers()
+        {
+            List<Dictionary<string, string>> listOfUsers = new List<Dictionary<string, string>>();
+            Dictionary<string, string> mapUser = new Dictionary<string, string>();
+            HttpResponseMessage response = await client.GetAsync(SHAREDSPACE_WORKSPACE_URL + "workspace_users");
+            if (response.StatusCode.ToString().Equals("OK"))
+            {
+                string stringUsers = response.Content.ReadAsStringAsync().Result;
+                JObject json = JObject.Parse(stringUsers);
+                JToken users = (json.First.Next).First;
+                foreach (JToken user in users)
+                {
+                    mapUser = user.ToObject<Dictionary<string, string>>();
+                    listOfUsers.Add(mapUser);
+                }
+            }
+            return listOfUsers;
         }
     }
 }
